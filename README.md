@@ -1,2 +1,3 @@
-# lg-project
-Local Government Siwes II Project for an undergraduate
+
+# lg_project
+Local Government biodata project
