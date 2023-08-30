@@ -1,4 +1,5 @@
 django
+django-storages
 psycopg2-binary
 python-dotenv
 qrcode
