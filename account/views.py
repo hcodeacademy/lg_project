@@ -38,5 +38,4 @@ def get_qrcode_image(request):
     qr = make(domain+request.path)
     img_name = 'qr' + str(time.time()) + '.png'
     qr.save(settings.MEDIA_ROOT + '/' + img_name)
-    print(img_name)
     return img_name
