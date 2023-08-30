@@ -1,0 +1,144 @@
+{% extends 'base.html' %}
+{% block content %}
+<body>
+    <h1 class="title">Bio-data of {{user.first_name}} {{user.last_name}}</h1>
+    <div>
+        <div class="container row">
+            <div class="passport-container">
+                <img src="{{user.passport.url}}" alt="lazy loading...">
+            </div>
+            <div class="bio-data">
+                <p>Full Name: {{user.first_name}} {{user.last_name}}</p>
+                <p>Email: {{user.email}}</p>
+                {% if user.gender %}
+                <p>Gender: Female</p>
+                {% else %}
+                    <p>Gender: Male</p>
+                {% endif %}
+                <p>Contact Address: {{user.contact_address}}</p>
+            </div>
+           
+        </div>
+        <div class="qr-img column">
+            {% if img_name %}
+                <img src="/media/{{ img_name }}" alt="qr code">
+            {% else %}
+                <a href="/account/detail/{{user.id}}" class="generate-qr">Generate QR</a>
+            {% endif %}
+        </div>
+
+        <div class="fill">
+            <a href="/" class="fill-another-form">Go back Home</a>
+        </div>
+    </div>
+<footer>&copy; 2023 Bashit Lawal Project</footer>
+</body>
+
+</html>
+
+<style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 10px;
+    }
+
+    footer {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    @media (max-width:320px)
+    {
+        .title {
+            font-size:large;
+        }
+        .row {
+            display: flex;
+            flex-direction: column;
+        }
+        .passport-container img {
+            width: 100px;
+            height: 100px;
+            /* display: flex; */
+            border-radius: 50%;
+        }
+    }
+
+    .bio-data {
+        text-align: justify;
+        padding: 2rem;
+        width: 100%;
+        margin-top: 2rem;
+    }
+
+    .bio-data p {
+        text-align: justify;
+        color:rgb(24, 39, 207);
+    }
+
+    h1 {
+        text-decoration: underline;
+        text-align: center;
+        color: rgb(53, 38, 45);
+        font-size: xx-large;
+    }
+
+   
+
+    .passport-container {
+        position: relative;
+        top: 2rem;
+        /* left: 50%; */
+        text-align: center;
+        max-width: 100%;
+
+    }
+
+    .passport-container img {
+        width: 150px;
+        height: 150px;
+        /* display: flex; */
+        /* border-radius: 0%; */
+    }
+
+    .container {
+        display: flexbox;
+    }
+
+    .qr-img{
+        width: 100%;
+        max-width: 300px;
+        margin: 3rem auto;
+        text-align: center;
+    }
+
+    .qr-img img{
+        width: 100%;
+        height: 100%;
+    }
+
+    .generate-qr {
+        background-color: black;
+        border-radius: 10%;
+        padding: 1em 2em;
+        color: white;
+        text-decoration: none;
+        margin: auto;
+    }
+
+    .fill {
+        margin: 2rem 0 5rem 0;
+        text-align: center;
+    }
+    .fill-another-form{
+        background-color: black;
+        border-radius: 10%;
+        padding: 1em 2em;
+        color: white;
+        text-decoration: none;
+       
+    }
+</style>
+
+
+{% endblock %}
