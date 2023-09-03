@@ -61,7 +61,7 @@ def get_qrcode_image(request):
     qr.save(settings.MEDIA_ROOT + '/' + img_name)
     return img_name
 
-def _download_pdf(file_path, user):
+def download_pdf(file_path, user):
     response = None
     if os.path.exists(file_path) and user != None:
 
@@ -73,7 +73,7 @@ def _download_pdf(file_path, user):
     return response
 
 
-def _generate_random_name(name):
+def generate_random_name(name):
     from random import randint
     return f'{name}{randint(1,10001)}'
 
@@ -100,9 +100,9 @@ def _make_pdf(img_path, user):
 
         # Add content to PDF
     doc.drawImage(passport_image_path, 450, 600,  width=100, height=100)
-    doc.drawString(50, 550, "Item Details: User bio data")
-    doc.drawString(50, 530, f"Name: {user.first_name}")
-    doc.drawString(50, 510, f"Description: {user.last_name}")
+    doc.drawString(50, 550, "Title: User Bio Data")
+    doc.drawString(50, 530, f"Name: {user.first_name} {user.last_name}")
+    doc.drawString(50, 510, f"Description: This is the bio data pdf for a user.")
     doc.drawImage(img_path, 50, 50, width=200, height=200)
 
     doc.save()
@@ -114,7 +114,7 @@ def generate_pdf(request, user_id, name):
         user = UserAccount.objects.get(id=user_id)
     except UserAccount.DoesNotExist as e:
         return redirect('account:homepage')
-    pdf_name = _generate_random_name(name)
+    pdf_name = generate_random_name(name)
     img_name = get_qrcode_image(request)
     img_path = _get_image_full_path(img_name)
     #pdf buffer reader
@@ -125,7 +125,7 @@ def generate_pdf(request, user_id, name):
     pdf_model.pdf_file.save(f'{pdf_name}.pdf', buffer)
     file_path = settings.MEDIA_ROOT + '/documents/' +name+'/pdf/' + pdf_name + '.pdf'
     #download file
-    response = _download_pdf(file_path, user)
+    response = download_pdf(file_path, user)
     buffer.seek(0)
     buffer.close()
     return response
