@@ -1,6 +1,6 @@
-boto3
+# boto3
 django
-django-storages
+# django-storages
 psycopg2-binary
 python-dotenv
 qrcode
@@ -8,4 +8,3 @@ gunicorn
 reportlab
 Pillow
 whitenoise
-xhtml2pdf
