@@ -5,5 +5,7 @@ psycopg2-binary
 python-dotenv
 qrcode
 gunicorn
+reportlab
 Pillow
 whitenoise
+xhtml2pdf

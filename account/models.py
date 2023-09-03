@@ -1,3 +1,4 @@
+from typing import Iterable, Optional
 from django.db import models
 
 gender_choices = ((0, "Male"),(1,"Female"))
@@ -7,7 +8,12 @@ marital_status = ((0,"Single"),(1,"Married"), (2,"Divorced"))
 
 
 def passport_directory(instance, filename):
-    return "/".join(["documents", str(instance.first_name), "passport", filename])
+    return "/".join(["passport", str(instance.first_name), filename])
+    # return "/".join(["documents", str(instance.first_name), "passport", filename])
+
+
+def pdf_dir(instance, filename):
+    return "/".join(["documents", str(instance.title), "pdf", filename])
 
 
 class UserAccount(models.Model):
@@ -32,3 +38,7 @@ class UserAccount(models.Model):
 
         return f"{self.first_name} {self.last_name}"
     
+class GeneratedPDF(models.Model):
+    title = models.CharField(max_length=100)
+    pdf_file = models.FileField(upload_to=pdf_dir)
+    created_at = models.DateTimeField(auto_now_add=True)
