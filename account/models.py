@@ -1,4 +1,3 @@
-from typing import Iterable, Optional
 from django.db import models
 
 gender_choices = ((0, "Male"),(1,"Female"))
