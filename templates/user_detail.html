@@ -136,13 +136,17 @@
            
         </div>
         <div class="qr-img column">
-            {% if img_name %}
-                <img src="/media/{{ img_name }}" alt="qr code">
+            {% if img_url %}
+                <img src="{{ img_url }}" alt="qr code">
             {% else %}
                 <a href="/account/detail/{{user.id}}" class="generate-qr">Generate QR</a>
             {% endif %}
         </div> -->
          
+
+        <div class="download-button-container">
+            <a href="/account/detail/{{user.id}}/download/{{user.first_name}}" class="download-button">Download</a>
+        </div>
 
         <div class="fill">
             <a href=""><button id="download-pdf">Download PDF</button></a>
@@ -249,5 +253,28 @@
         color: white;
         text-decoration: none;
     }
+
+        /* styles.css */
+    .download-button-container {
+        text-align: center;
+        margin-top: 100px;
+    }
+
+    .download-button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    .download-button:hover {
+        background-color: #0056b3;
+    }
+
 </style> -->
+
+
 {% endblock %}

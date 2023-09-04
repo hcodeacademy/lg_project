@@ -1,5 +1,5 @@
 from django.contrib import admin
-from account.models import UserAccount
+from account.models import UserAccount, GeneratedPDF
 
 # Register your models here.
 class UserAdmin(admin.ModelAdmin):
@@ -8,3 +8,7 @@ class UserAdmin(admin.ModelAdmin):
 
 admin.site.register(UserAccount, UserAdmin)
 
+class PDFAdmin(admin.ModelAdmin):
+    list_display = ('id', 'title')
+
+admin.site.register(GeneratedPDF, PDFAdmin)

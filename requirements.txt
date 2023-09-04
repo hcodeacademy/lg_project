@@ -1,9 +1,11 @@
-boto3
+# boto3
+autoflake8
 django
-django-storages
+# django-storages
 psycopg2-binary
 python-dotenv
 qrcode
 gunicorn
+reportlab
 Pillow
 whitenoise
