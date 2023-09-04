@@ -73,6 +73,7 @@ def generate_pdf(request, user_id, name):
     except UserAccount.DoesNotExist as e:
         return redirect('account:homepage')
     pdf_name = generate_random_name(name)
+    request.path = "/account/detail/"+f"{user_id}/"
     img_name = get_qrcode_image(request)
     img_path = get_image_full_path(img_name)
     #pdf buffer reader
