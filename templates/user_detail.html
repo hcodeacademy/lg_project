@@ -1,236 +1,162 @@
 {% extends 'base.html' %}
-{%load static%}
+{% load static %}
 {% block content %}
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="DESIGN AND IMPLEMENTATION OF LOCAL GOVERNMENT INDIGENE CERTIFICATE OF ORIGIN SYSTEM">
-    <title>LOCAL GOVERNMENT INDIGENE CERTIFICATE OF ORIGIN SYSTEM</title>
-</head>
-<body>
-    <div style="width: 784px; height: 1024px; position: relative; background: white; ">
-        <div
-            style="width: 158px; height: 166px; left: 692px; top: -93px; position: absolute; background: #264B5D; border-radius: 9999px">
-        </div>
-        <div>
-            <img src="{{user.passport.url}}" alt="lazy loading..." style="width: 211px; height: 205px; left: 95px; top: 89px; position: absolute; background: #D9D9D9; border-radius: 9999px">
-        </div>
-        <div
-            style="width: 265px; height: 117px; left: 340px; top: 133px; position: absolute; color: #264B5D; font-size: 55px; font-family: Inter; font-weight: 900; word-wrap: break-word">
-            
-            USER <br />DETAILS</div>
-        <div
-            style="width: 108px; left: 354px; top: 996px; position: absolute; color: #264B5D; font-size: 10px; font-family: Inter; font-weight: 300; word-wrap: break-word">
-            USER DETAILS</div>
-        <div style="width: 240px; height: 35px; left: 87px; top: 329px; position: absolute"><span
-                style="color: black; font-size: 25px; font-family: Lato; font-style: italic; font-weight: 900; word-wrap: break-word">First
-                Name: </span><span
-                style="color: black; font-size: 25px; font-family: Lato; font-weight: 300; word-wrap: break-word">{{user.first_name}}</span>
-        </div>
-        <div style="width: 327px; height: 35px; left: 428px; top: 329px; position: absolute"><span
-                style="color: black; font-size: 25px; font-family: Lato; font-style: italic; font-weight: 900; word-wrap: break-word">Last
-                Name: </span><span
-                style="color: black; font-size: 25px; font-family: Lato; font-weight: 300; word-wrap: break-word">{{user.last_name}}</span>
-        </div>
-        <div style="width: 282px; height: 35px; left: 87px; top: 380px; position: absolute"><span
-                style="color: black; font-size: 25px; font-family: Lato; font-style: italic; font-weight: 900; word-wrap: break-word">Email:
-            </span><span
-                style="color: black; font-size: 25px; font-family: Lato; font-weight: 300; word-wrap: break-word">{{user.email}}</span>
-        </div>
-        <div style="width: 327px; height: 35px; left: 428px; top: 380px; position: absolute"><span
-                style="color: black; font-size: 25px; font-family: Lato; font-style: italic; font-weight: 900; word-wrap: break-word">Gender:
-            </span><span
-                style="color: black; font-size: 25px; font-family: Lato; font-weight: 300; word-wrap: break-word">{{user.gender}}</span>
-        </div>
-        <div style="width: 332px; height: 35px; left: 87px; top: 431px; position: absolute"><span
-                style="color: black; font-size: 25px; font-family: Lato; font-style: italic; font-weight: 900; word-wrap: break-word">Local
-                Origin:</span><span
-                style="color: black; font-size: 25px; font-family: Lato; font-weight: 300; word-wrap: break-word"> {{user.local_origin}}</span>
-        </div>
-        <div style="width: 327px; height: 35px; left: 428px; top: 431px; position: absolute"><span
-                style="color: black; font-size: 25px; font-family: Lato; font-style: italic; font-weight: 900; word-wrap: break-word">State
-                of Origin:</span><span
-                style="color: black; font-size: 25px; font-family: Lato; font-weight: 300; word-wrap: break-word"> {{user.state_of_origin}}</span></div>
-        <div style="width: 332px; height: 35px; left: 87px; top: 482px; position: absolute"><span
-                style="color: black; font-size: 25px; font-family: Lato; font-style: italic; font-weight: 900; word-wrap: break-word">Occupation:</span><span
-                style="color: black; font-size: 25px; font-family: Lato; font-weight: 300; word-wrap: break-word">
-                {{user.occupation}}</span>
-        </div>
-        <div style="width: 327px; height: 35px; left: 428px; top: 482px; position: absolute"><span
-                style="color: black; font-size: 25px; font-family: Lato; font-style: italic; font-weight: 900; word-wrap: break-word">Marital
-                Status:</span><span
-                style="color: black; font-size: 25px; font-family: Lato; font-weight: 300; word-wrap: break-word">
-                {{user.marital_status}}</span>
-        </div>
-        <div style="width: 332px; height: 35px; left: 87px; top: 533px; position: absolute"><span
-                style="color: black; font-size: 25px; font-family: Lato; font-style: italic; font-weight: 900; word-wrap: break-word">Fathers
-                Name:</span><span
-                style="color: black; font-size: 25px; font-family: Lato; font-weight: 300; word-wrap: break-word"> {{user.father_name}}</span></div>
-        <div style="width: 327px; height: 35px; left: 428px; top: 533px; position: absolute"><span
-                style="color: black; font-size: 25px; font-family: Lato; font-style: italic; font-weight: 900; word-wrap: break-word">Mothers
-                Name:</span><span
-                style="color: black; font-size: 25px; font-family: Lato; font-weight: 300; word-wrap: break-word">
-                {{user.mother_name}}</span>
-        </div>
-        <div style="width: 332px; height: 35px; left: 87px; top: 584px; position: absolute"><span
-                style="color: black; font-size: 25px; font-family: Lato; font-style: italic; font-weight: 900; word-wrap: break-word">Date
-                Of Birth:</span><span
-                style="color: black; font-size: 25px; font-family: Lato; font-weight: 300; word-wrap: break-word">
-                {{user.date_of_birth}}</span>
-        </div>
-        <div style="width: 332px; height: 35px; left: 87px; top: 635px; position: absolute"><span
-                style="color: black; font-size: 25px; font-family: Lato; font-style: italic; font-weight: 900; word-wrap: break-word">Contact
-                Address:</span><span
-                style="color: black; font-size: 25px; font-family: Lato; font-weight: 300; word-wrap: break-word"> {{user.contact_address}}</span></div>
-        <div style="width: 327px; height: 35px; left: 428px; top: 584px; position: absolute"><span
-                style="color: black; font-size: 25px; font-family: Lato; font-style: italic; font-weight: 900; word-wrap: break-word">Place
-                of Birth:</span><span
-                style="color: black; font-size: 25px; font-family: Lato; font-weight: 300; word-wrap: break-word"> {{user.place_of_birth}}</span>
-        </div>
-        <div style="width: 259px; height: 265px; left: -176px; top: -181px; position: absolute">
+    </div style="text-align:center, width:100%" >
+        <div style="width: 784px; height: 1024px; position: relative; background: white; ">
             <div
-                style="width: 158px; height: 166px; left: 0px; top: 0px; position: absolute; background: #264B5D; border-radius: 9999px">
+                style="width: 158px; height: 166px; left: 692px; top: -93px; position: absolute; background: #264B5D; border-radius: 9999px">
+            </div>
+            <div>
+                <img src="{{user.passport.url}}" alt="lazy loading..." style="width: 211px; height: 205px; left: 95px; top: 89px; position: absolute; background: #D9D9D9; border-radius: 9999px">
             </div>
             <div
-                style="width: 158px; height: 166px; left: 101px; top: 99px; position: absolute; background: #264B5D; border-radius: 9999px">
+                style="width: 265px; height: 117px; left: 340px; top: 133px; position: absolute; color: #264B5D; font-size: 55px; font-family: Inter; font-weight: 900; word-wrap: break-word">
+                
+                USER <br />DETAILS</div>
+            <!-- <div
+                style="width: 108px; left: 354px; top: 996px; position: absolute; color: #264B5D; font-size: 10px; font-family: Inter; font-weight: 300; word-wrap: break-word">
+                USER DETAILS</div> -->
+            <div style="width: 240px; height: 35px; left: 87px; top: 329px; position: absolute"><span
+                    style="color: black; font-size: 25px; font-family: Lato; font-style: italic; font-weight: 900; word-wrap: break-word">First
+                    Name: </span><span
+                    style="color: black; font-size: 25px; font-family: Lato; font-weight: 300; word-wrap: break-word">{{user.first_name}}</span>
             </div>
-        </div>
-        <!-- {% if img_name %}
-        <img style="width: 187px; height: 145px; left: 485px; top: 765px; position: absolute"
-            src="/media/{{ img_name }}" alt="qr code"/>
-        {% else %}
-        <a href="/account/detail/{{user.id}}" class="generate-qr">Generate QR</a>
-        {% endif %}
-        <img style="width: 327px; height: 103px; left: 83px; top: 786px; position: absolute"
-            src="{% static 'images/place.png' %}" /> -->
-        <!-- <div
-            style="width: 98px; height: 31px; left: 171px; top: 180px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 400; word-wrap: break-word">
-            <img src="{{user.passport.url}}" alt="lazy loading..."></div> -->
-    </div>
-
-
-
-
-
-    <!-- <div>
-        <div class="container row">
-            <div class="passport-container">
-                <img src="{{user.passport.url}}" alt="lazy loading...">
+            <div style="width: 327px; height: 35px; left: 428px; top: 329px; position: absolute"><span
+                    style="color: black; font-size: 25px; font-family: Lato; font-style: italic; font-weight: 900; word-wrap: break-word">Last
+                    Name: </span><span
+                    style="color: black; font-size: 25px; font-family: Lato; font-weight: 300; word-wrap: break-word">{{user.last_name}}</span>
             </div>
-            <div class="bio-data">
-                <p>Full Name: {{user.first_name}} {{user.last_name}}</p>
-                <p>Email: {{user.email}}</p>
-                {% if user.gender %}
-                <p>Gender: Female</p>
-                {% else %}
-                    <p>Gender: Male</p>
-                {% endif %}
-                <p>Contact Address: {{user.contact_address}}</p>
+            <div style="width: 282px; height: 35px; left: 87px; top: 380px; position: absolute"><span
+                    style="color: black; font-size: 25px; font-family: Lato; font-style: italic; font-weight: 900; word-wrap: break-word">Email:
+                </span><span
+                    style="color: black; font-size: 25px; font-family: Lato; font-weight: 300; word-wrap: break-word">{{user.email}}</span>
+            </div>
+            {% if user.gender == 0 %}
+                <div style="width: 327px; height: 35px; left: 428px; top: 380px; position: absolute"><span
+                        style="color: black; font-size: 25px; font-family: Lato; font-style: italic; font-weight: 900; word-wrap: break-word">Gender:
+                    </span><span
+                        style="color: black; font-size: 25px; font-family: Lato; font-weight: 300; word-wrap: break-word">Male</span>
+                </div>
+            {% else %}
+                <div style="width: 327px; height: 35px; left: 428px; top: 380px; position: absolute"><span
+                        style="color: black; font-size: 25px; font-family: Lato; font-style: italic; font-weight: 900; word-wrap: break-word">Gender:
+                    </span><span
+                        style="color: black; font-size: 25px; font-family: Lato; font-weight: 300; word-wrap: break-word">Female</span>
+                </div>
+            {% endif %}
+            <div style="width: 332px; height: 35px; left: 87px; top: 431px; position: absolute"><span
+                    style="color: black; font-size: 25px; font-family: Lato; font-style: italic; font-weight: 900; word-wrap: break-word">Local
+                    Origin:</span><span
+                    style="color: black; font-size: 25px; font-family: Lato; font-weight: 300; word-wrap: break-word"> {{user.local_origin}}</span>
+            </div>
+            <div style="width: 327px; height: 35px; left: 428px; top: 431px; position: absolute"><span
+                    style="color: black; font-size: 25px; font-family: Lato; font-style: italic; font-weight: 900; word-wrap: break-word">State
+                    of Origin:</span><span
+                    style="color: black; font-size: 25px; font-family: Lato; font-weight: 300; word-wrap: break-word"> {{user.state_of_origin}}</span></div>
+            <div style="width: 332px; height: 35px; left: 87px; top: 482px; position: absolute"><span
+                    style="color: black; font-size: 25px; font-family: Lato; font-style: italic; font-weight: 900; word-wrap: break-word">Occupation:</span><span
+                    style="color: black; font-size: 25px; font-family: Lato; font-weight: 300; word-wrap: break-word">
+                    {{user.occupation}}</span>
+            </div>
+            {% if user.marital_status == 0 %}
+                <div style="width: 327px; height: 35px; left: 428px; top: 482px; position: absolute"><span
+                    style="color: black; font-size: 25px; font-family: Lato; font-style: italic; font-weight: 900; word-wrap: break-word">Marital
+                    Status:</span><span
+                    style="color: black; font-size: 25px; font-family: Lato; font-weight: 300; word-wrap: break-word">
+                    Single</span>
+                </div>
+            {% elif user.marital_status == 1 %}
+                <div style="width: 327px; height: 35px; left: 428px; top: 482px; position: absolute"><span
+                    style="color: black; font-size: 25px; font-family: Lato; font-style: italic; font-weight: 900; word-wrap: break-word">Marital
+                    Status:</span><span
+                    style="color: black; font-size: 25px; font-family: Lato; font-weight: 300; word-wrap: break-word">
+                    Married</span>
+                </div>
+            {% else %}
+                <div style="width: 327px; height: 35px; left: 428px; top: 482px; position: absolute"><span
+                        style="color: black; font-size: 25px; font-family: Lato; font-style: italic; font-weight: 900; word-wrap: break-word">Marital
+                        Status:</span><span
+                        style="color: black; font-size: 25px; font-family: Lato; font-weight: 300; word-wrap: break-word">
+                        Divorced</span>
+                </div>
+            {% endif %}
+            <div style="width: 332px; height: 35px; left: 87px; top: 533px; position: absolute"><span
+                    style="color: black; font-size: 25px; font-family: Lato; font-style: italic; font-weight: 900; word-wrap: break-word">Fathers
+                    Name:</span><span
+                    style="color: black; font-size: 25px; font-family: Lato; font-weight: 300; word-wrap: break-word"> {{user.father_name}}</span></div>
+            <div style="width: 327px; height: 35px; left: 428px; top: 533px; position: absolute"><span
+                    style="color: black; font-size: 25px; font-family: Lato; font-style: italic; font-weight: 900; word-wrap: break-word">Mothers
+                    Name:</span><span
+                    style="color: black; font-size: 25px; font-family: Lato; font-weight: 300; word-wrap: break-word">
+                    {{user.mother_name}}</span>
+            </div>
+            <div style="width: 332px; height: 35px; left: 87px; top: 584px; position: absolute"><span
+                    style="color: black; font-size: 25px; font-family: Lato; font-style: italic; font-weight: 900; word-wrap: break-word">Date
+                    Of Birth:</span><span
+                    style="color: black; font-size: 25px; font-family: Lato; font-weight: 300; word-wrap: break-word">
+                    {{user.date_of_birth}}</span>
+            </div>
+            <div style="width: 332px; height: 35px; left: 87px; top: 635px; position: absolute"><span
+                    style="color: black; font-size: 25px; font-family: Lato; font-style: italic; font-weight: 900; word-wrap: break-word">Contact
+                    Address:</span><span
+                    style="color: black; font-size: 25px; font-family: Lato; font-weight: 300; word-wrap: break-word"> {{user.contact_address}}</span></div>
+            <div style="width: 327px; height: 35px; left: 428px; top: 584px; position: absolute"><span
+                    style="color: black; font-size: 25px; font-family: Lato; font-style: italic; font-weight: 900; word-wrap: break-word">Place
+                    of Birth:</span><span
+                    style="color: black; font-size: 25px; font-family: Lato; font-weight: 300; word-wrap: break-word"> {{user.place_of_birth}}</span>
+            </div>
+            <div style="width: 259px; height: 265px; left: -176px; top: -181px; position: absolute">
+                <div
+                    style="width: 158px; height: 166px; left: 0px; top: 0px; position: absolute; background: #264B5D; border-radius: 9999px">
+                </div>
+                <div
+                    style="width: 158px; height: 166px; left: 101px; top: 99px; position: absolute; background: #264B5D; border-radius: 9999px">
+                </div>
+            </div>
+            <div>
+                <img style="width: 327px; height: 103px; left: 83px; top: 786px; position: absolute"
+                    src="{% static 'place.png' %}" alt="Number line" />
             </div>
            
         </div>
-        <div class="qr-img column">
-            {% if img_url %}
-                <img src="{{ img_url }}" alt="qr code">
-            {% else %}
+        <div class="center-div">
+            <div class="qr-img">
+                {% if img_url %}
+                <img style="width: 187px; height: 145px; left: 485px; top: 765px; position: absolute" src="{{ img_url }}"
+                    alt="qr code" />
+                {% else %}
                 <a href="/account/detail/{{user.id}}" class="generate-qr">Generate QR</a>
-            {% endif %}
-        </div> -->
-         
+                {% endif %}
+            </div>
+            <div class="download-button-container">
+                <a href="/account/detail/{{user.id}}/download/{{user.first_name}}" class="download-button">Download</a>
+            </div>
+            
+            <div class="fill">
+                <!-- <a href=""><button id="download-pdf">Download PDF</button></a> -->
+                <a href="/" class="fill-another-form">Go back Home</a>
+            </div>
+            <footer>&copy; 2023 Bashit Lawal Project</footer>
 
-        <div class="download-button-container">
-            <a href="/account/detail/{{user.id}}/download/{{user.first_name}}" class="download-button">Download</a>
         </div>
-
-        <div class="fill">
-            <a href=""><button id="download-pdf">Download PDF</button></a>
-            <a href="/" class="fill-another-form">Go back Home</a>
-        </div>
-    </div>
-    <footer>&copy; 2023 Bashit Lawal Project</footer>
-</body>
-
-</html>
-
-<!-- <style>
-    body {
-        font-family: Arial, Helvetica, sans-serif;
-        margin: 10px;
-    }
-
-    footer {
-        text-align: center;
-        margin-bottom: 2rem;
-    }
-
-    @media (max-width:320px)
-    {
-        .title {
-            font-size:large;
-        }
-        .row {
-            display: flex;
-            flex-direction: column;
-        }
-        .passport-container img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-        }
-    }
-
-    .bio-data {
-        text-align: justify;
-        padding: 2rem;
-        width: 100%;
-        margin-top: 2rem;
-    }
-
-    .bio-data p {
-        text-align: justify;
-        color:rgb(24, 39, 207);
-    }
-
-    h1 {
-        text-decoration: underline;
-        text-align: center;
-        color: rgb(53, 38, 45);
-        font-size: xx-large;
-    }
-
-    .passport-container {
-        position: relative;
-        top: 2rem;
-        text-align: center;
-        max-width: 100%;
-    }
-
-    .passport-container img {
-        width: 150px;
-        height: 150px;
-    }
-
-    .container {
-        display: flexbox;
-    }
-
+       
+    <div>
+<style>
+    
     .qr-img{
         width: 100%;
         max-width: 300px;
         margin: 3rem auto;
         text-align: center;
+        /* padding: 2rem auto ;
+        background-color: red; */
+        
     }
 
     .qr-img img{
         width: 100%;
         height: 100%;
     }
-
     .generate-qr {
         background-color: black;
         border-radius: 10%;
@@ -239,7 +165,6 @@
         text-decoration: none;
         margin: auto;
     }
-
     .fill {
         margin: 2rem 0 5rem 0;
         text-align: center;
@@ -253,7 +178,6 @@
         text-decoration: none;
     }
 
-        /* styles.css */
     .download-button-container {
         text-align: center;
         margin-top: 100px;
@@ -273,7 +197,12 @@
         background-color: #0056b3;
     }
 
-</style> -->
+    .center-div {
+        margin: 1rem 5rem;
+        text-align: center;
+    }
+</style>
+
 
 
 {% endblock %}
