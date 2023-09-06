@@ -22,7 +22,7 @@ class UserAccount(models.Model):
     gender = models.IntegerField(choices=gender_choices)
     state_of_origin = models.CharField(max_length=250)
     local_origin = models.CharField(max_length=250)
-    Occupation = models.CharField(max_length=250)
+    occupation = models.CharField(max_length=250)
     marital_status = models.IntegerField( choices=marital_status)
     father_name = models.CharField(max_length=250)
     mother_name = models.CharField(max_length=250)

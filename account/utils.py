@@ -49,25 +49,77 @@ def make_pdf(img_path, user):
     custom_style = ParagraphStyle(
             name='CustomStyle',
             parent=styles['Normal'],
-            fontName='Helvetica',
-            fontSize=12,
-            textColor=colors.red,
+            fontName='Times-BoldItalic',
+            fontSize=16,
+            textColor=colors.black,
             leading=14,
             spaceAfter=10,
         )
+    heading_style = ParagraphStyle(
+    name='HeadingStyle',
+    parent=styles['Normal'],
+    fontName='Helvetica-Bold',
+    fontSize=25,
+    textColor=colors.darkblue,
+    leading=20,
+    spaceAfter=10,
+    underline=True,
+)
+
+# Draw "USER DETAIL" heading
+    doc.setFont(heading_style.fontName, heading_style.fontSize)
+    doc.setFillColor(heading_style.textColor)
+    doc.drawString(200, 700, "USER DETAILS")
+    
+
+    
+
+    top_left_image_path = get_image_full_path('dark.png')
+    doc.drawImage(top_left_image_path, -53, 750, width=100, height=100)
+
+    top_right_image_path = get_image_full_path('dark.png')
+    doc.drawImage(top_right_image_path, 560, 750, width=100, height=100)
+
+    
     doc.setFont(custom_style.fontName, custom_style.fontSize)
     doc.setFillColor(custom_style.textColor)
-    # doc.setTitle(f"{user.first_name}'s Bio Data")
-    passport_image_path = user.passport.path # Replace with actual image path
-    
-        # Add content to PDF
-    doc.drawImage(passport_image_path, 450, 600,  width=100, height=100)
-    # add_rounded_image(doc, passport_image_path, x=450, y=600, width=100, height=100, radius=20)
-    doc.drawString(50, 550, "Title: User Bio Data")
+    passport_image_path = user.passport.path
 
-    doc.drawString(50, 530, f"Name: {user.first_name} {user.last_name}")
-    doc.drawString(50, 510, f"Description: This is the bio data pdf for a user.")
-    doc.drawImage(img_path, 50, 50, width=200, height=200)
+    doc.setTitle("USER DETAILS")
+    doc.drawImage(passport_image_path, 65, 650,  width=100, height=100)
+    holder_image_path = get_image_full_path('holder.png')
+    doc.drawImage(holder_image_path, 50, 50, width=227, height=103)
+
+
+
+    # Add content to PDF
+    doc.drawImage(img_path, 350, 50, width=200, height=150)
+    doc.drawString(50, 600, f"First Name: {user.first_name.capitalize()}")
+    doc.drawString(350, 600, f"Last Name:{user.last_name.capitalize()}")
+    doc.drawString(50, 550, f"Email:{user.email}")
+    doc.drawString(350, 550, f"Gender:")
+    if user.gender == 0:
+        doc.drawString(410, 550, "Male")
+    else:
+        doc.drawString(410, 550, "Female")
+
+    doc.drawString(50, 500, f"Local Origin: {user.local_origin.capitalize()}")
+    doc.drawString(350, 500, f"State of Origin: {user.state_of_origin.capitalize()}")
+    doc.drawString(50, 450, f"Occupation: {user.occupation.capitalize()}")
+    doc.drawString(350, 450, f"Marital Status: ")
+    if user.marital_status == 0:
+        doc.drawString(460, 450, "Single")
+    elif user.marital_status == 1:
+        doc.drawString(460, 450, "Married")
+    else:
+        doc.drawString(460, 450, "Divorced")
+
+    doc.drawString(50, 400, f"Fathers Name: {user.father_name.capitalize()} ")
+    doc.drawString(350, 400, f"Mothers Name: {user.mother_name.capitalize()} ")
+    doc.drawString(50, 350, f"Date Of Birth: {user.date_of_birth} ")
+    doc.drawString(350, 350, f"Place Of Birth: {user.place_of_birth.capitalize()} ")
+    doc.drawString(50, 300, f"Contact Address: {user.contact_address.capitalize()} ")
+
 
     doc.save()
 
